@@ -1,0 +1,21 @@
+server:
+  port: 8091
+spring:
+  cloud:
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          lower-case-service-id: true
+      routes:
+        # 认证中心
+        - id: auth
+          #lb代表从注册中心获取服务
+          uri: lb://auth
+          #转发路径配置
+          predicates:
+            - Path=/auth/**
+          filters:
+            #将路径中的Path前缀剥离
+            - StripPrefix=1
+
