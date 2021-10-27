@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 4444
 spring:
   cloud:
     gateway:
@@ -15,7 +15,7 @@ spring:
           #转发路径配置
           predicates:
             - Path=/auth/**
-          filters:
-            #将路径中的Path前缀剥离
-            - StripPrefix=1
+#          filters:
+#            #将路径中的Path前缀剥离
+#            - StripPrefix=1
 
